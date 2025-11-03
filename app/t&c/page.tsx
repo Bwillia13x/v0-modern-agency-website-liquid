@@ -4,8 +4,8 @@ import Link from "next/link"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Terms and Conditions — Skitbit",
-  description: "Terms and conditions for Skitbit 3D animation services.",
+  title: "Terms and Conditions — Calgary Consulting",
+  description: "Terms and conditions for Calgary Consulting services.",
   robots: {
     index: false,
     follow: false,
@@ -27,7 +27,7 @@ export default function TermsPage() {
                 <header className="space-y-4">
                   <h1 className="text-4xl font-bold tracking-tight text-lime-300">Terms and Conditions</h1>
                   <p className="text-neutral-400 text-lg">
-                    Welcome to Skitbit. By accessing our website, you agree to these terms and conditions. Please read
+                    Welcome to Calgary Consulting. By using our services, you agree to these terms and conditions. Please read
                     them carefully.
                   </p>
                 </header>
@@ -35,17 +35,17 @@ export default function TermsPage() {
                 <section className="space-y-3">
                   <h2 className="text-2xl font-semibold text-white">1. Introduction</h2>
                   <p className="text-neutral-300">
-                    These Terms and Conditions govern your use of the Skitbit website and services. By using our
-                    website, you accept these Terms in full.
+                    These Terms and Conditions govern your use of Calgary Consulting services. By engaging our
+                    services, you accept these Terms in full.
                   </p>
                 </section>
 
                 <section className="space-y-3">
-                  <h2 className="text-2xl font-semibold text-white">2. Intellectual Property Rights</h2>
+                  <h2 className="text-2xl font-semibold text-white">2. Service Delivery and Intellectual Property</h2>
                   <p className="text-neutral-300">
-                    Unless otherwise stated, Skitbit owns all the project files. This includes all electronic files,
-                    drawings, source files, and any materials provided to the client, which remain the sole property of
-                    Skitbit International, even if shared.
+                    All strategies, reports, and materials provided during consulting sessions remain the intellectual property of
+                    Calgary Consulting until full payment is received. Upon payment, clients receive full usage rights to all
+                    deliverables specific to their engagement.
                   </p>
                   <ul className="list-disc list-inside space-y-2 text-neutral-400">
                     <li>You must not republish material from this site.</li>

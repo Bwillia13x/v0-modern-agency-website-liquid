@@ -5,7 +5,6 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { CheckCircle2 } from "lucide-react"
-import { ExamplesDialog } from "./examples-dialog"
 
 type Feature = { text: string; muted?: boolean }
 
@@ -20,20 +19,26 @@ function FeatureItem({ text, muted = false }: Feature) {
   )
 }
 
-type Currency = "INR" | "USD"
+type Currency = "INR" | "USD" | "CAD"
 
-const PRICES: Record<Currency, { startup: string; pro: string; premium: string; save: string }> = {
+const PRICES: Record<Currency, { starter: string; growth: string; enterprise: string; save: string }> = {
   INR: {
-    startup: "₹25,000/-",
-    pro: "₹55,000/-",
-    premium: "₹1,70,500/-",
-    save: "Save Flat ₹1,500/-",
+    starter: "₹83,000/mo",
+    growth: "₹2,07,500/mo",
+    enterprise: "₹4,15,000/mo",
+    save: "Save ₹10,000",
   },
   USD: {
-    startup: "$299",
-    pro: "$699",
-    premium: "$2,049",
-    save: "Save $20",
+    starter: "$999/mo",
+    growth: "$2,499/mo",
+    enterprise: "$4,999/mo",
+    save: "Save $100",
+  },
+  CAD: {
+    starter: "$999/mo",
+    growth: "$2,499/mo",
+    enterprise: "$4,999/mo",
+    save: "Save $100",
   },
 }
 
@@ -41,46 +46,12 @@ function guessLocalCurrency(): Currency {
   const lang = typeof navigator !== "undefined" ? navigator.language : ""
   const tz = typeof Intl !== "undefined" ? Intl.DateTimeFormat().resolvedOptions().timeZone : ""
   if (/-(IN|PK|BD)\b/i.test(lang) || /(Kolkata|Karachi|Dhaka)/i.test(tz || "")) return "INR"
+  if (/-(CA)\b/i.test(lang) || /(Edmonton|Calgary|Vancouver|Toronto|Montreal)/i.test(tz || "")) return "CAD"
   return "USD"
 }
 
-const startupVideos = [
-  "H1h5dHpp1Nw",
-  "HXARcSSdfMU",
-  "fd8zraQ1JdE",
-  "ARQyF2FA3Ec",
-  "dEZfHADlFtw",
-  "wuyfdfKO6Rc",
-  "VakkmhtrUA0",
-  "o8DoIg9yNGk",
-  "rtReBkFt-To",
-]
-const proVideos = [
-  "ASV2myPRfKA",
-  "eTfS2lqwf6A",
-  "KALbYHmGV4I",
-  "Go0AA9hZ4as",
-  "sB7RZ9QCOAg",
-  "TK2WboJOJaw",
-  "5Xq7UdXXOxI",
-  "kMjWCidQSK0",
-  "RKKdQvwKOhQ",
-]
-const premiumVideos = [
-  "v2AC41dglnM",
-  "pRpeEdMmmQ0",
-  "3AtDnEC4zak",
-  "JRfuAukYTKg",
-  "LsoLEjrDogU",
-  "RB-RcX5DS5A",
-  "hTWKbfoikeg",
-  "YQHsXMglC9A",
-  "09R8_2nJtjg",
-]
-
 export function Pricing() {
-  const [openPlan, setOpenPlan] = useState<null | "Startup" | "Pro" | "Premium">(null)
-  const [currency, setCurrency] = useState<Currency>("USD")
+  const [currency, setCurrency] = useState<Currency>("CAD")
 
   useEffect(() => {
     let cancelled = false
@@ -89,7 +60,11 @@ export function Pricing() {
         const res = await fetch("/api/geo", { cache: "no-store" })
         if (!res.ok) throw new Error("geo failed")
         const data = await res.json()
-        if (!cancelled) setCurrency(data?.currency === "INR" ? "INR" : "USD")
+        if (!cancelled) {
+          if (data?.currency === "INR") setCurrency("INR")
+          else if (data?.currency === "CAD") setCurrency("CAD")
+          else setCurrency("USD")
+        }
       } catch {
         if (!cancelled) setCurrency(guessLocalCurrency())
       }
@@ -114,23 +89,23 @@ export function Pricing() {
             Our Pricing.
           </h2>
           <p className="mx-auto mt-2 max-w-xl text-sm text-neutral-300" itemProp="description">
-            No hidden fees. Just world-class animation that fits your budget.
+            Transparent monthly packages. No hidden fees. Just results-driven consulting.
           </p>
           <div className="mt-6">
             <Button
               asChild
-              className="rounded-full px-5 text-neutral-900 hover:brightness-95"
+              className="rounded-full px-8 py-6 text-base font-semibold text-neutral-900 hover:brightness-95 hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg"
               style={{ backgroundColor: "#f2f2f2" }}
             >
-              <Link href="https://wa.link/rc25na" target="_blank">
-                Contact now
+              <Link href="/contact">
+                Book Free Consultation
               </Link>
             </Button>
           </div>
         </div>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-3">
-          {/* Startup */}
+          {/* Starter */}
           <Card
             className="relative overflow-hidden rounded-2xl liquid-glass shadow-[0_12px_40px_rgba(0,0,0,0.3)] transition-all duration-300"
             itemScope
@@ -144,34 +119,32 @@ export function Pricing() {
             </div>
             <CardHeader className="space-y-3 pb-4">
               <div className="text-sm font-semibold text-neutral-100" itemProp="name">
-                Startup
+                Starter
               </div>
               <div className="flex items-end gap-2 text-white">
                 <div className="text-xl font-bold tracking-tight" itemProp="price">
-                  {PRICES[currency].startup}
+                  {PRICES[currency].starter}
                 </div>
-                <span className="pb-0.5 text-[11px] text-neutral-300">per video</span>
+                <span className="pb-0.5 text-[11px] text-neutral-300">monthly</span>
                 <meta itemProp="priceCurrency" content={currency} />
               </div>
               <Button
-                type="button"
-                onClick={() => setOpenPlan("Startup")}
-                onTouchStart={() => setOpenPlan("Startup")}
+                asChild
                 className="w-full rounded-full px-4 py-2 text-sm font-medium transition-colors"
                 style={{ backgroundColor: "#0a0a0a", color: "#ffffff", border: "1px solid #333" }}
               >
-                View Example
+                <Link href="/checkout">Get Started</Link>
               </Button>
             </CardHeader>
             <CardContent className="pt-0">
               <ul className="grid gap-2" itemProp="description">
                 {[
-                  "10–15s Reel/Teaser (1 SKU)",
-                  "Simple background + lighting",
-                  "1 revision",
-                  "Delivered in 10 days",
-                  "Social reel/ad-ready visuals",
-                  "3D Modelling - Included",
+                  "Social media strategy consultation",
+                  "2 consulting sessions per month",
+                  "Monthly analytics report",
+                  "Email support (48hr response)",
+                  "Content planning guidance",
+                  "Platform optimization tips",
                 ].map((f, i) => (
                   <FeatureItem key={i} text={f} />
                 ))}
@@ -180,90 +153,94 @@ export function Pricing() {
             <CardFooter />
           </Card>
 
-          {/* Pro */}
-          <Card
-            className="relative overflow-hidden rounded-2xl liquid-glass shadow-[0_12px_40px_rgba(0,0,0,0.3)] transition-all duration-300"
-            itemScope
-            itemType="https://schema.org/Offer"
-          >
-            <CardHeader className="space-y-3 pb-4">
-              <div className="text-sm font-semibold text-neutral-100" itemProp="name">
-                Pro
-              </div>
-              <div className="flex items-end gap-2 text-white">
-                <div className="text-xl font-bold tracking-tight" itemProp="price">
-                  {PRICES[currency].pro}
-                </div>
-                <span className="pb-0.5 text-[11px] text-neutral-300">per video</span>
-                <meta itemProp="priceCurrency" content={currency} />
-              </div>
-              <Button
-                type="button"
-                onClick={() => setOpenPlan("Pro")}
-                onTouchStart={() => setOpenPlan("Pro")}
-                className="w-full rounded-full px-4 py-2 text-sm font-medium transition-colors"
-                style={{ backgroundColor: "#0a0a0a", color: "#ffffff", border: "1px solid #333" }}
-              >
-                View Example
-              </Button>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <ul className="grid gap-2" itemProp="description">
-                {[
-                  "20–25s Animation (1 SKU)",
-                  "Fixed Shot-list (no surprises)",
-                  "Creative background + pro graphics",
-                  "2 structured revisions",
-                  "Delivered in 3 weeks",
-                  "3D Modelling - Included",
-                ].map((f, i) => (
-                  <FeatureItem key={i} text={f} />
-                ))}
-              </ul>
-            </CardContent>
-            <CardFooter />
-          </Card>
-
-          {/* Premium */}
+          {/* Growth */}
           <Card
             className="relative overflow-hidden rounded-2xl liquid-glass-enhanced shadow-[0_16px_50px_rgba(0,0,0,0.4)] transition-all duration-300"
             itemScope
             itemType="https://schema.org/Offer"
           >
-            <CardHeader className="relative space-y-3 pb-4">
+            <div
+              className="absolute right-4 top-4 rounded-full px-3 py-1 text-xs font-medium"
+              style={{ backgroundColor: ACCENT, color: "#000" }}
+            >
+              MOST POPULAR
+            </div>
+            <CardHeader className="space-y-3 pb-4">
               <div className="text-sm font-semibold text-neutral-100" itemProp="name">
-                Premium
+                Growth
               </div>
               <div className="flex items-end gap-2 text-white">
                 <div className="text-xl font-bold tracking-tight" itemProp="price">
-                  {PRICES[currency].premium}
+                  {PRICES[currency].growth}
                 </div>
-                <span className="pb-0.5 text-[11px] text-neutral-300">per video</span>
+                <span className="pb-0.5 text-[11px] text-neutral-300">monthly</span>
                 <meta itemProp="priceCurrency" content={currency} />
               </div>
               <Button
-                type="button"
-                onClick={() => setOpenPlan("Premium")}
-                onTouchStart={() => setOpenPlan("Premium")}
-                className="w-full rounded-full px-4 py-2 text-sm font-medium transition-colors"
+                asChild
+                className="w-full rounded-full px-4 py-2.5 text-sm font-semibold transition-all duration-200 hover:scale-105 active:scale-95 hover:brightness-110"
+                style={{ backgroundColor: ACCENT, color: "#000" }}
+              >
+                <Link href="/contact">Get Started</Link>
+              </Button>
+            </CardHeader>
+            <CardContent className="pt-0">
+              <ul className="grid gap-2" itemProp="description">
+                {[
+                  "Everything in Starter, plus:",
+                  "4 consulting sessions per month",
+                  "Brand partnership guidance",
+                  "Priority support (24hr response)",
+                  "Quarterly strategy review",
+                  "Competitor analysis",
+                  "Growth campaign planning",
+                ].map((f, i) => (
+                  <FeatureItem key={i} text={f} muted={i === 0} />
+                ))}
+              </ul>
+            </CardContent>
+            <CardFooter />
+          </Card>
+
+          {/* Enterprise */}
+          <Card
+            className="relative overflow-hidden rounded-2xl liquid-glass shadow-[0_12px_40px_rgba(0,0,0,0.3)] transition-all duration-300"
+            itemScope
+            itemType="https://schema.org/Offer"
+          >
+            <CardHeader className="relative space-y-3 pb-4">
+              <div className="text-sm font-semibold text-neutral-100" itemProp="name">
+                Enterprise
+              </div>
+              <div className="flex items-end gap-2 text-white">
+                <div className="text-xl font-bold tracking-tight" itemProp="price">
+                  {PRICES[currency].enterprise}
+                </div>
+                <span className="pb-0.5 text-[11px] text-neutral-300">monthly</span>
+                <meta itemProp="priceCurrency" content={currency} />
+              </div>
+              <Button
+                asChild
+                className="w-full rounded-full px-4 py-2.5 text-sm font-semibold transition-all duration-200 hover:scale-105 active:scale-95"
                 style={{ backgroundColor: "#0a0a0a", color: "#ffffff", border: "1px solid #333" }}
               >
-                View Example
+                <Link href="/contact">Get Started</Link>
               </Button>
             </CardHeader>
             <CardContent className="relative pt-0">
               <ul className="grid gap-2" itemProp="description">
                 {[
-                  "30–40s Animation (up to 5 SKUs)",
-                  "Advanced storyboard + shot design",
-                  "Delivered in 4 week",
-                  "Lighting, Camera Animation, Depth effects",
-                  "Up to 3 structured revisions",
-                  "3D Modelling - Included",
+                  "Everything in Growth, plus:",
+                  "Unlimited consulting sessions",
+                  "Dedicated account manager",
+                  "Custom service packages",
+                  "24/7 priority support",
+                  "White-label reports",
+                  "Team training sessions",
                 ].map((f, i) => (
                   <li key={i} className="flex items-start gap-2">
                     <CheckCircle2 className="mt-0.5 h-4 w-4" style={{ color: ACCENT }} />
-                    <span className="text-sm text-neutral-100">{f}</span>
+                    <span className={`text-sm ${i === 0 ? "text-neutral-300" : "text-neutral-100"}`}>{f}</span>
                   </li>
                 ))}
               </ul>
@@ -274,27 +251,6 @@ export function Pricing() {
       </div>
 
       {/* Modals */}
-      <ExamplesDialog
-        open={openPlan === "Startup"}
-        onOpenChange={(v) => setOpenPlan(v ? "Startup" : null)}
-        planName="Startup Plan"
-        price={PRICES[currency].startup}
-        videoIds={startupVideos}
-      />
-      <ExamplesDialog
-        open={openPlan === "Pro"}
-        onOpenChange={(v) => setOpenPlan(v ? "Pro" : null)}
-        planName="Pro Plan"
-        price={PRICES[currency].pro}
-        videoIds={proVideos}
-      />
-      <ExamplesDialog
-        open={openPlan === "Premium"}
-        onOpenChange={(v) => setOpenPlan(v ? "Premium" : null)}
-        planName="Premium Plan"
-        price={PRICES[currency].premium}
-        videoIds={premiumVideos}
-      />
     </section>
   )
 }

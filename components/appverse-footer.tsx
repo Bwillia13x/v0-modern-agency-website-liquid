@@ -14,8 +14,8 @@ interface FooterContent {
 }
 
 const defaultContent: FooterContent = {
-  tagline: "Experience 3D animation like never before. We craft cinematic visuals for brands and products.",
-  copyright: "© 2025 — Skitbit International Uk",
+  tagline: "Expert consulting for social media influencers and Calgary businesses. Grow your digital presence with proven strategies.",
+  copyright: "© 2025 — Calgary Consulting",
 }
 
 export function AppverseFooter() {
@@ -43,10 +43,10 @@ export function AppverseFooter() {
         <div className="flex justify-center">
           <Button
             asChild
-            className="rounded-full bg-lime-400 px-6 py-2 text-sm font-medium text-black shadow-[0_0_20px_rgba(163,230,53,0.35)] hover:bg-lime-300"
+            className="rounded-full bg-lime-400 px-8 py-6 text-base font-semibold text-black shadow-[0_0_20px_rgba(163,230,53,0.35)] hover:bg-lime-300 hover:shadow-[0_0_30px_rgba(163,230,53,0.5)] hover:scale-105 transition-all duration-300"
           >
-            <a href="https://wa.link/rc25na" target="_blank" rel="noopener noreferrer">
-              Contact us
+            <a href="/contact">
+              Book Free Consultation
             </a>
           </Button>
         </div>
@@ -107,8 +107,8 @@ export function AppverseFooter() {
             {/* Brand */}
             <div className="space-y-3">
               <div className="flex items-center gap-1.5">
-                <Image src="/icons/skitbit-white.svg" alt="Skitbit logo" width={24} height={24} className="h-6 w-6" />
-                <span className="text-xl font-semibold text-white">Skitbit</span>
+                <Image src="/icons/skitbit-white.svg" alt="Calgary Consulting logo" width={24} height={24} className="h-6 w-6" />
+                <span className="text-xl font-semibold text-white">Calgary Consulting</span>
               </div>
               <p className="max-w-sm text-sm text-neutral-400">{content.tagline}</p>
             </div>
@@ -116,66 +116,71 @@ export function AppverseFooter() {
             {/* Navigation */}
             <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-2">
               <div>
-                <h5 className="mb-2 text-xs font-semibold uppercase tracking-widest text-neutral-400">Navigation</h5>
+                <h5 className="mb-2 text-xs font-semibold uppercase tracking-widest text-neutral-400">Services</h5>
                 <ul className="space-y-2 text-sm text-neutral-300">
-                  {["Home", "Features", "Testimonials", "Pricing", "Blog", "Download"].map((item) => (
-                    <li key={item}>
-                      <Link href={`#${item.toLowerCase()}`} className="hover:text-lime-300">
-                        {item}
+                  {[
+                    { label: "Social Media Growth", href: "/social-media-growth" },
+                    { label: "Brand Partnerships", href: "/brand-partnerships" },
+                    { label: "Business Consulting", href: "/business-consulting" },
+                    { label: "Pricing", href: "/#pricing" },
+                    { label: "About", href: "/About" },
+                    { label: "FAQ", href: "/faq" },
+                  ].map((item) => (
+                    <li key={item.label}>
+                      <Link href={item.href} className="hover:text-lime-300 transition-colors">
+                        {item.label}
                       </Link>
                     </li>
                   ))}
                 </ul>
               </div>
               <div>
-                <h5 className="mb-2 text-xs font-semibold uppercase tracking-widest text-neutral-400">Social media</h5>
+                <h5 className="mb-2 text-xs font-semibold uppercase tracking-widest text-neutral-400">Connect</h5>
                 <ul className="space-y-2 text-sm text-neutral-300">
-                  <li className="flex items-center gap-2">
-                    <Twitter className="h-4 w-4 text-neutral-400" />
-                    <a
-                      href="https://twitter.com/theskitbit"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-lime-300"
-                      aria-label="Follow skitbit on Twitter"
-                    >
-                      X/Twitter
-                    </a>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Youtube className="h-4 w-4 text-neutral-400" />
-                    <a
-                      href="https://www.youtube.com/@skitbitinternational"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-lime-300"
-                      aria-label="Subscribe to skitbit on YouTube"
-                    >
-                      YouTube
-                    </a>
-                  </li>
                   <li className="flex items-center gap-2">
                     <Instagram className="h-4 w-4 text-neutral-400" />
                     <a
-                      href="https://instagram.com/theskitbit"
+                      href="https://instagram.com/calgaryconsulting"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-lime-300"
-                      aria-label="Follow skitbit on Instagram"
+                      className="hover:text-lime-300 transition-colors"
+                      aria-label="Follow Calgary Consulting on Instagram"
                     >
                       Instagram
                     </a>
                   </li>
                   <li className="flex items-center gap-2">
-                    <MessageCircle className="h-4 w-4 text-neutral-400" />
+                    <Twitter className="h-4 w-4 text-neutral-400" />
                     <a
-                      href="https://threads.com/theskitbit"
+                      href="https://twitter.com/calgaryconsult"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-lime-300"
-                      aria-label="Follow skitbit on Threads"
+                      className="hover:text-lime-300 transition-colors"
+                      aria-label="Follow Calgary Consulting on Twitter"
                     >
-                      Threads
+                      Twitter
+                    </a>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Youtube className="h-4 w-4 text-neutral-400" />
+                    <a
+                      href="https://youtube.com/@calgaryconsulting"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-lime-300 transition-colors"
+                      aria-label="Subscribe to Calgary Consulting on YouTube"
+                    >
+                      YouTube
+                    </a>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <MessageCircle className="h-4 w-4 text-neutral-400" />
+                    <a
+                      href="/contact"
+                      className="hover:text-lime-300 transition-colors"
+                      aria-label="Contact Calgary Consulting"
+                    >
+                      Contact Us
                     </a>
                   </li>
                 </ul>
@@ -187,11 +192,14 @@ export function AppverseFooter() {
           <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-xs text-neutral-500 sm:flex-row">
             <p>{content.copyright}</p>
             <div className="flex items-center gap-6">
-              <Link href="/revisions" className="hover:text-lime-300">
-                Revision Policy
+              <Link href="/faq" className="hover:text-lime-300 transition-colors">
+                FAQ
               </Link>
-              <Link href="/t&c" className="hover:text-lime-300">
+              <Link href="/t&c" className="hover:text-lime-300 transition-colors">
                 Terms & Conditions
+              </Link>
+              <Link href="/revisions" className="hover:text-lime-300 transition-colors">
+                Revisions
               </Link>
             </div>
           </div>
