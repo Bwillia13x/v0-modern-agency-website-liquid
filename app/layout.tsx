@@ -3,17 +3,17 @@ import "./globals.css"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import Script from "next/script"
-import Plasma from "@/components/plasma"
 import { Suspense } from "react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
+import RootClientLayout from "./RootClientLayout"
 
 const inter = Inter({ subsets: ["latin"], display: "swap" })
 
 export const metadata: Metadata = {
-  title: "Calgary Consulting | Expert Digital Marketing & Social Media Growth",
+  title: "Velocity Growth | Expert Digital Marketing & Social Media Growth",
   description:
-    "Transform your digital presence with Calgary Consulting. Expert services for social media influencers and local businesses. Social media growth, brand partnerships, and business consulting in Calgary.",
+    "Transform your digital presence with Velocity Growth. Expert services for social media influencers and local businesses. Social media growth, brand partnerships, and business consulting in Calgary.",
   generator: "v0.app",
 }
 
@@ -45,7 +45,7 @@ export default function RootLayout({
           {`
             function updateFavicon() {
               const darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-              const faviconHref = darkMode ? '/icons/calgary-consulting-light.svg' : '/icons/favicon-dark.svg';
+              const faviconHref = darkMode ? '/velocity-logo-icon.svg' : '/velocity-logo-icon.svg';
               let link = document.querySelector("link[rel~='icon']");
               if (!link) {
                 link = document.createElement('link');
@@ -82,10 +82,7 @@ export default function RootLayout({
       </head>
       <body>
         <Suspense fallback={null}>
-          <div className="fixed inset-0 z-0 bg-black">
-            <Plasma color="#8b5cf6" speed={0.8} direction="forward" scale={1.5} opacity={0.4} mouseInteractive={true} />
-          </div>
-          <div className="relative z-10">{children}</div>
+          <RootClientLayout>{children}</RootClientLayout>
         </Suspense>
 
         {/* Vercel Speed Insights and Analytics components */}

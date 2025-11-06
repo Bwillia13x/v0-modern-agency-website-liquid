@@ -1,5 +1,5 @@
-import { SiteHeader } from "@/components/site-header";
-import { AppverseFooter } from "@/components/appverse-footer";
+import { SiteHeader } from "@/components/site-header"
+import { AppverseFooter } from "@/components/appverse-footer"
 
 export default function RevisionPolicyPage() {
   return (
@@ -14,7 +14,8 @@ export default function RevisionPolicyPage() {
                 <header className="space-y-4">
                   <h1 className="text-4xl font-bold tracking-tight text-lime-300">Revision Policy</h1>
                   <p className="text-neutral-400 text-lg">
-                    Our revision policy ensures transparency and fairness for all clients while maintaining the quality and efficiency of our work.
+                    Our revision policy ensures transparency and fairness for all clients while maintaining the quality
+                    and efficiency of our work.
                   </p>
                 </header>
 
@@ -45,24 +46,27 @@ export default function RevisionPolicyPage() {
                 <section className="space-y-3">
                   <h2 className="text-2xl font-semibold text-white">3. Scope of Revisions</h2>
                   <p className="text-neutral-300">
-                    Revisions are meant to refine and adjust the agreed deliverables, not to expand the original scope of work. Significant changes or additions will require a new project agreement.
+                    Revisions are meant to refine and adjust the agreed deliverables, not to expand the original scope
+                    of work. Significant changes or additions will require a new project agreement.
                   </p>
                 </section>
 
                 <section className="space-y-3">
                   <h2 className="text-2xl font-semibold text-white">4. Turnaround Time</h2>
                   <p className="text-neutral-300">
-                    The turnaround time for revisions will depend on the complexity of the requested changes and current project workload.
+                    The turnaround time for revisions will depend on the complexity of the requested changes and current
+                    project workload.
                   </p>
                 </section>
 
                 <section className="space-y-3">
                   <h2 className="text-2xl font-semibold text-white">5. Contact Us</h2>
+                  <p className="text-neutral-300">For questions regarding our revision policy, please contact us at:</p>
                   <p className="text-neutral-300">
-                    For questions regarding our revision policy, please contact us at:
-                  </p>
-                  <p className="text-neutral-300">
-                    Email: <a href="mailto:hello@calgaryconsulting.com" className="text-lime-300 underline">hello@calgaryconsulting.com</a>
+                    Email:{" "}
+                    <a href="mailto:hello@velocitygrowth.com" className="text-lime-300 underline">
+                      hello@velocitygrowth.com
+                    </a>
                   </p>
                 </section>
               </div>
@@ -72,5 +76,5 @@ export default function RevisionPolicyPage() {
       </section>
       <AppverseFooter />
     </>
-  );
+  )
 }

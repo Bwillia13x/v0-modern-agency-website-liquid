@@ -23,9 +23,10 @@ export function SiteHeader() {
   const pathname = usePathname()
 
   // Check if we're on any service page
-  const isOnServicePage = pathname.includes('/social-media-growth') ||
-    pathname.includes('/brand-partnerships') ||
-    pathname.includes('/business-consulting')
+  const isOnServicePage =
+    pathname.includes("/social-media-growth") ||
+    pathname.includes("/brand-partnerships") ||
+    pathname.includes("/business-consulting")
 
   const services = [
     {
@@ -60,11 +61,17 @@ export function SiteHeader() {
       <div className="container mx-auto max-w-4xl">
         <div className="flex h-14 items-center justify-between px-6 liquid-glass-header rounded-full">
           {/* Brand Logo */}
-          <Link href="/" className="flex items-center gap-1.5 group">
-            <div className="flex items-center justify-center w-5 h-5 rounded-md bg-purple-300 group-hover:bg-purple-200 transition-colors">
-              <span className="text-black text-xs font-bold">CC</span>
-            </div>
-            <span className="font-semibold tracking-wide text-white group-hover:text-purple-300 transition-colors">Calgary Consulting</span>
+          <Link href="/" className="flex items-center gap-2 group">
+            <Image
+              src="/velocity-logo-icon.svg"
+              alt="Velocity Growth"
+              width={28}
+              height={28}
+              className="h-7 w-7 group-hover:scale-105 transition-transform"
+            />
+            <span className="font-semibold tracking-wide text-white group-hover:text-purple-300 transition-colors">
+              Velocity Growth
+            </span>
           </Link>
 
           {/* Desktop Nav with Services Dropdown */}
@@ -76,7 +83,7 @@ export function SiteHeader() {
                     className={`bg-transparent text-white/90 hover:text-purple-300 data-[state=open]:text-purple-300
                                hover:bg-transparent focus:bg-transparent
                                data-[state=open]:bg-transparent data-[state=open]:hover:bg-transparent
-                               data-[active=true]:bg-transparent ${isOnServicePage ? 'text-purple-300 font-semibold' : ''}`}
+                               data-[active=true]:bg-transparent ${isOnServicePage ? "text-purple-300 font-semibold" : ""}`}
                   >
                     Services
                   </NavigationMenuTrigger>
@@ -92,13 +99,17 @@ export function SiteHeader() {
                                 className={`group relative flex items-start gap-4 rounded-xl p-4 transition-all
                                            hover:bg-white/5 hover:ring-1 hover:ring-purple-300/60
                                            hover:shadow-[0_0_0_1px_rgba(168,85,247,0.25),0_0_20px_rgba(168,85,247,0.15)]
-                                           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-300/70 ${isActive ? 'bg-white/5 ring-1 ring-purple-300/60' : ''
-                                  }`}
+                                           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-300/70 ${
+                                             isActive ? "bg-white/5 ring-1 ring-purple-300/60" : ""
+                                           }`}
                               >
                                 <service.icon className="h-6 w-6 text-purple-300 mt-0.5 shrink-0 group-hover:text-purple-200" />
                                 <div className="flex-1">
-                                  <div className={`text-sm font-medium text-white group-hover:text-purple-300 mb-1 ${isActive ? 'text-purple-300 font-semibold' : ''
-                                    }`}>
+                                  <div
+                                    className={`text-sm font-medium text-white group-hover:text-purple-300 mb-1 ${
+                                      isActive ? "text-purple-300 font-semibold" : ""
+                                    }`}
+                                  >
                                     {service.label}
                                   </div>
                                   <p className="text-xs text-gray-400 leading-relaxed">{service.description}</p>
@@ -114,13 +125,14 @@ export function SiteHeader() {
               </NavigationMenuList>
             </NavigationMenu>
             {links.map((l) => {
-              const isActive = pathname === l.href || (l.href.startsWith('/#') && pathname === '/')
+              const isActive = pathname === l.href || (l.href.startsWith("/#") && pathname === "/")
               return (
                 <Link
                   key={l.href}
                   href={l.href}
-                  className={`text-white/90 hover:text-purple-300 transition-colors ${isActive ? 'text-purple-300 font-semibold' : ''
-                    }`}
+                  className={`text-white/90 hover:text-purple-300 transition-colors ${
+                    isActive ? "text-purple-300 font-semibold" : ""
+                  }`}
                 >
                   {l.label}
                 </Link>
@@ -155,11 +167,15 @@ export function SiteHeader() {
               </SheetTrigger>
               <SheetContent side="right" className="liquid-glass border-gray-800 p-0 w-64 flex flex-col">
                 {/* Brand Header */}
-                <div className="flex items-center gap-1.5 px-4 py-4 border-b border-gray-800">
-                  <div className="flex items-center justify-center w-6 h-6 rounded-md bg-purple-300">
-                    <span className="text-black text-xs font-bold">CC</span>
-                  </div>
-                  <span className="font-semibold tracking-wide text-white text-lg">Calgary Consulting</span>
+                <div className="flex items-center gap-2 px-4 py-4 border-b border-gray-800">
+                  <Image
+                    src="/velocity-logo-icon.svg"
+                    alt="Velocity Growth"
+                    width={24}
+                    height={24}
+                    className="h-6 w-6"
+                  />
+                  <span className="font-semibold tracking-wide text-white text-lg">Velocity Growth</span>
                 </div>
 
                 {/* Nav Links */}
@@ -188,8 +204,9 @@ export function SiteHeader() {
                                 setServicesOpen(false)
                                 setMobileMenuOpen(false)
                               }}
-                              className={`flex items-center gap-3 pl-8 pr-4 py-2.5 hover:bg-gray-900 hover:text-purple-300 transition-colors ${isActive ? 'bg-gray-900 text-purple-300 font-semibold' : ''
-                                }`}
+                              className={`flex items-center gap-3 pl-8 pr-4 py-2.5 hover:bg-gray-900 hover:text-purple-300 transition-colors ${
+                                isActive ? "bg-gray-900 text-purple-300 font-semibold" : ""
+                              }`}
                             >
                               <service.icon className="h-4 w-4 text-purple-300/70" />
                               <span className="text-sm">{service.label}</span>
@@ -201,14 +218,15 @@ export function SiteHeader() {
                   </Collapsible>
 
                   {links.map((l) => {
-                    const isActive = pathname === l.href || (l.href.startsWith('/#') && pathname === '/')
+                    const isActive = pathname === l.href || (l.href.startsWith("/#") && pathname === "/")
                     return (
                       <Link
                         key={l.href}
                         href={l.href}
                         onClick={() => setMobileMenuOpen(false)}
-                        className={`flex items-center gap-3 px-4 py-3 hover:bg-gray-900 hover:text-purple-300 transition-colors ${isActive ? 'bg-gray-900 text-purple-300 font-semibold' : ''
-                          }`}
+                        className={`flex items-center gap-3 px-4 py-3 hover:bg-gray-900 hover:text-purple-300 transition-colors ${
+                          isActive ? "bg-gray-900 text-purple-300 font-semibold" : ""
+                        }`}
                       >
                         <span className="inline-flex items-center justify-center w-5 h-5 text-gray-400">
                           <l.icon className="h-4 w-4" />

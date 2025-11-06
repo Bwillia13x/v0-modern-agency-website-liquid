@@ -1,0 +1,106 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Enhanced gradient with more depth -->
+    <linearGradient id="vGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:1">
+        <animate attributeName="stop-color" 
+                 values="#a78bfa;#c084fc;#a78bfa" 
+                 dur="3s" 
+                 repeatCount="indefinite"/>
+      </stop>
+      <stop offset="50%" style="stop-color:#c084fc;stop-opacity:1">
+        <animate attributeName="stop-color" 
+                 values="#c084fc;#e879f9;#c084fc" 
+                 dur="3s" 
+                 repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" style="stop-color:#e879f9;stop-opacity:1">
+        <animate attributeName="stop-color" 
+                 values="#e879f9;#c084fc;#e879f9" 
+                 dur="3s" 
+                 repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+    
+    <!-- Glow effect gradient -->
+    <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:0.4"/>
+      <stop offset="100%" style="stop-color:#a78bfa;stop-opacity:0"/>
+    </radialGradient>
+    
+    <!-- Accent gradient for energy particles -->
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#d9f99d;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#bef264;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Subtle glow background -->
+  <circle cx="24" cy="24" r="20" fill="url(#glowGrad)" opacity="0.6">
+    <animate attributeName="r" 
+             values="18;22;18" 
+             dur="2s" 
+             repeatCount="indefinite"/>
+    <animate attributeName="opacity" 
+             values="0.4;0.7;0.4" 
+             dur="2s" 
+             repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Main V shape with enhanced stroke -->
+  <path d="M 12 10 L 24 34 L 36 10" 
+        stroke="url(#vGrad)" 
+        stroke-width="4.5" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+        fill="none"
+        filter="drop-shadow(0 0 8px rgba(167, 139, 250, 0.5))">
+    <!-- Subtle scale pulse -->
+    <animateTransform
+      attributeName="transform"
+      type="scale"
+      values="1;1.05;1"
+      dur="2s"
+      repeatCount="indefinite"
+      additive="sum"
+      attributeType="XML"/>
+  </path>
+  
+  <!-- Energy particles rising up -->
+  <circle cx="24" cy="38" r="1.5" fill="url(#accentGrad)">
+    <animate attributeName="cy" 
+             values="38;8;38" 
+             dur="2.5s" 
+             repeatCount="indefinite"/>
+    <animate attributeName="opacity" 
+             values="0;1;0" 
+             dur="2.5s" 
+             repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="20" cy="36" r="1" fill="url(#accentGrad)">
+    <animate attributeName="cy" 
+             values="36;10;36" 
+             dur="3s" 
+             begin="0.5s"
+             repeatCount="indefinite"/>
+    <animate attributeName="opacity" 
+             values="0;1;0" 
+             dur="3s" 
+             begin="0.5s"
+             repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="28" cy="36" r="1" fill="url(#accentGrad)">
+    <animate attributeName="cy" 
+             values="36;10;36" 
+             dur="3s" 
+             begin="1s"
+             repeatCount="indefinite"/>
+    <animate attributeName="opacity" 
+             values="0;1;0" 
+             dur="3s" 
+             begin="1s"
+             repeatCount="indefinite"/>
+  </circle>
+</svg>

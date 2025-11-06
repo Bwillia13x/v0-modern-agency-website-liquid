@@ -1,14 +1,26 @@
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import LazyVideo from "./lazy-video"
+import { ArrowRight, Sparkles } from "lucide-react"
 
 export function Hero() {
   const buttonNew = (
-    <Button asChild className="rounded-full bg-lime-400 px-8 py-6 text-base font-semibold text-black hover:bg-lime-300 hover:shadow-lg hover:shadow-lime-400/30 hover:scale-105 active:scale-95 transition-all duration-300">
-      <a href="/contact" rel="noopener noreferrer">
-        Book Free Consultation
-      </a>
-    </Button>
+    <div className="flex flex-col items-center gap-3">
+      <Button
+        asChild
+        className="group rounded-full bg-lime-400 px-8 py-6 text-base font-semibold text-black hover:bg-lime-300 hover:shadow-[0_0_40px_rgba(163,230,53,0.6)] hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_0_20px_rgba(163,230,53,0.3)]"
+      >
+        <a href="/contact" rel="noopener noreferrer" className="flex items-center gap-2">
+          <Sparkles className="h-5 w-5" />
+          Start Growing Today
+          <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+        </a>
+      </Button>
+      <p className="text-xs text-white/60 flex items-center gap-2">
+        <span className="inline-block h-2 w-2 rounded-full bg-lime-400 animate-pulse" />
+        Free strategy session • No credit card required • 50+ clients trust us
+      </p>
+    </div>
   )
 
   return (
@@ -16,10 +28,8 @@ export function Hero() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center justify-center py-14 sm:py-20">
           <div className="mb-5 flex items-center gap-2">
-            <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-purple-300">
-              <span className="text-black text-sm font-bold">CC</span>
-            </div>
-            <p className="text-sm uppercase tracking-[0.25em] text-lime-300/80">calgary consulting</p>
+            <Image src="/velocity-logo-icon.svg" alt="Velocity Growth" width={32} height={32} className="h-8 w-8" />
+            <p className="text-sm uppercase tracking-[0.25em] text-lime-300/80">velocity growth</p>
           </div>
           <h1 className="mt-3 text-center text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
             <span className="block">AMPLIFY YOUR</span>
@@ -27,7 +37,8 @@ export function Hero() {
             <span className="block">IN CALGARY</span>
           </h1>
           <p className="mt-4 text-center text-lg text-white/70 max-w-2xl">
-            Expert consulting for influencers & local businesses
+            Expert consulting for influencers & local businesses. Get 3x engagement growth in 90 days or your money
+            back.
           </p>
           <div className="mt-6">{buttonNew}</div>
 
@@ -84,7 +95,7 @@ function PhoneCard({
             <div className="text-3xl font-bold leading-snug text-white/90">{title}</div>
             <p className="text-xs text-white/70">{sub}</p>
             <div className="mt-3 inline-flex items-center rounded-full bg-black/40 px-2 py-0.5 text-[10px] uppercase tracking-wider text-lime-300">
-              {tone === "proven" ? "calgary consulting" : tone}
+              {tone === "proven" ? "velocity growth" : tone}
             </div>
           </div>
         </div>

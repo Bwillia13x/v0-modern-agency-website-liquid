@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
-import { CheckCircle2 } from "lucide-react"
+import { CheckCircle2, ArrowRight, Zap } from "lucide-react"
 
 type Feature = { text: string; muted?: boolean }
 
@@ -86,28 +86,31 @@ export function Pricing() {
             Our Pricing and Packages
           </div>
           <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl" itemProp="name">
-            Our Pricing.
+            Invest in Growth That Pays for Itself
           </h2>
           <p className="mx-auto mt-2 max-w-xl text-sm text-neutral-300" itemProp="description">
-            Transparent monthly packages. No hidden fees. Just results-driven consulting.
+            Transparent monthly packages with guaranteed ROI. Average clients see 3x engagement growth in 90 days.
           </p>
-          <div className="mt-6">
+          <div className="mt-6 flex flex-col items-center gap-3">
             <Button
               asChild
-              className="rounded-full px-8 py-6 text-base font-semibold text-neutral-900 hover:brightness-95 hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg"
-              style={{ backgroundColor: "#f2f2f2" }}
+              className="group rounded-full px-8 py-6 text-base font-semibold text-neutral-900 hover:brightness-95 hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_0_30px_rgba(163,230,53,0.4)]"
+              style={{ backgroundColor: ACCENT }}
             >
-              <Link href="/contact">
-                Book Free Consultation
+              <Link href="/contact" className="flex items-center gap-2">
+                <Zap className="h-5 w-5" />
+                Get Your Custom Growth Plan
+                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
+            <p className="text-xs text-white/60">Free consultation • Custom pricing available • Cancel anytime</p>
           </div>
         </div>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-3">
           {/* Starter */}
           <Card
-            className="relative overflow-hidden rounded-2xl liquid-glass shadow-[0_12px_40px_rgba(0,0,0,0.3)] transition-all duration-300"
+            className="relative overflow-hidden rounded-2xl liquid-glass shadow-[0_12px_40px_rgba(0,0,0,0.3)] transition-all duration-300 hover:shadow-[0_16px_50px_rgba(0,0,0,0.4)]"
             itemScope
             itemType="https://schema.org/Offer"
           >
@@ -130,10 +133,13 @@ export function Pricing() {
               </div>
               <Button
                 asChild
-                className="w-full rounded-full px-4 py-2 text-sm font-medium transition-colors"
+                className="group w-full rounded-full px-4 py-2 text-sm font-medium transition-all hover:scale-105 active:scale-95"
                 style={{ backgroundColor: "#0a0a0a", color: "#ffffff", border: "1px solid #333" }}
               >
-                <Link href="/checkout">Get Started</Link>
+                <Link href="/contact" className="flex items-center justify-center gap-2">
+                  Start Growing
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
               </Button>
             </CardHeader>
             <CardContent className="pt-0">
@@ -155,12 +161,12 @@ export function Pricing() {
 
           {/* Growth */}
           <Card
-            className="relative overflow-hidden rounded-2xl liquid-glass-enhanced shadow-[0_16px_50px_rgba(0,0,0,0.4)] transition-all duration-300"
+            className="relative overflow-hidden rounded-2xl liquid-glass-enhanced shadow-[0_16px_50px_rgba(0,0,0,0.4)] transition-all duration-300 hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]"
             itemScope
             itemType="https://schema.org/Offer"
           >
             <div
-              className="absolute right-4 top-4 rounded-full px-3 py-1 text-xs font-medium"
+              className="absolute right-4 top-4 rounded-full px-3 py-1 text-xs font-medium animate-pulse"
               style={{ backgroundColor: ACCENT, color: "#000" }}
             >
               MOST POPULAR
@@ -178,10 +184,14 @@ export function Pricing() {
               </div>
               <Button
                 asChild
-                className="w-full rounded-full px-4 py-2.5 text-sm font-semibold transition-all duration-200 hover:scale-105 active:scale-95 hover:brightness-110"
+                className="group w-full rounded-full px-4 py-2.5 text-sm font-semibold transition-all duration-200 hover:scale-105 active:scale-95 hover:brightness-110 shadow-[0_0_20px_rgba(163,230,53,0.3)]"
                 style={{ backgroundColor: ACCENT, color: "#000" }}
               >
-                <Link href="/contact">Get Started</Link>
+                <Link href="/contact" className="flex items-center justify-center gap-2">
+                  <Zap className="h-4 w-4" />
+                  Accelerate Growth Now
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
               </Button>
             </CardHeader>
             <CardContent className="pt-0">
@@ -204,7 +214,7 @@ export function Pricing() {
 
           {/* Enterprise */}
           <Card
-            className="relative overflow-hidden rounded-2xl liquid-glass shadow-[0_12px_40px_rgba(0,0,0,0.3)] transition-all duration-300"
+            className="relative overflow-hidden rounded-2xl liquid-glass shadow-[0_12px_40px_rgba(0,0,0,0.3)] transition-all duration-300 hover:shadow-[0_16px_50px_rgba(0,0,0,0.4)]"
             itemScope
             itemType="https://schema.org/Offer"
           >
@@ -221,10 +231,13 @@ export function Pricing() {
               </div>
               <Button
                 asChild
-                className="w-full rounded-full px-4 py-2.5 text-sm font-semibold transition-all duration-200 hover:scale-105 active:scale-95"
+                className="group w-full rounded-full px-4 py-2.5 text-sm font-semibold transition-all duration-200 hover:scale-105 active:scale-95"
                 style={{ backgroundColor: "#0a0a0a", color: "#ffffff", border: "1px solid #333" }}
               >
-                <Link href="/contact">Get Started</Link>
+                <Link href="/contact" className="flex items-center justify-center gap-2">
+                  Get Custom Plan
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
               </Button>
             </CardHeader>
             <CardContent className="relative pt-0">

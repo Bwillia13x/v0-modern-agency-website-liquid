@@ -1,20 +1,15 @@
-// app/about/page.tsx
-import React from "react";
-import { SiteHeader } from "@/components/site-header";
+import { SiteHeader } from "@/components/site-header"
 
 export default function AboutPage() {
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Calgary Consulting",
-    url: "https://calgaryconsulting.com",
-    logo: "https://calgaryconsulting.com/logo.png",
+    name: "Velocity Growth",
+    url: "https://velocitygrowth.com",
+    logo: "https://velocitygrowth.com/velocity-logo.svg",
     description:
-      "Calgary Consulting provides expert digital marketing and business consulting services for social media influencers and local Calgary businesses.",
-    sameAs: [
-      "https://www.instagram.com/calgaryconsulting",
-      "https://www.linkedin.com/company/calgaryconsulting",
-    ],
+      "Velocity Growth provides expert digital marketing and business consulting services for social media influencers and local Calgary businesses.",
+    sameAs: ["https://www.instagram.com/velocitygrowth", "https://www.linkedin.com/company/velocitygrowth"],
     address: {
       "@type": "PostalAddress",
       addressLocality: "Calgary",
@@ -33,7 +28,7 @@ export default function AboutPage() {
       { "@type": "Place", name: "Alberta" },
       { "@type": "Place", name: "Canada" },
     ],
-  };
+  }
 
   return (
     <>
@@ -48,9 +43,7 @@ export default function AboutPage() {
 
       {/* Hero Section */}
       <section className="relative bg-black text-white py-20 px-6 md:px-12 lg:px-20 text-center">
-        <h1 className="text-4xl md:text-6xl font-bold mb-6">
-          About Calgary Consulting
-        </h1>
+        <h1 className="text-4xl md:text-6xl font-bold mb-6">About Velocity Growth</h1>
         <p className="text-lg md:text-xl max-w-2xl mx-auto opacity-80">
           Your trusted partner for digital growth in Calgary's dynamic business landscape.
         </p>
@@ -98,12 +91,8 @@ export default function AboutPage() {
 
       {/* CTA Section */}
       <section className="py-20 bg-black text-center text-white px-6">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6">
-          Ready to Grow Your Business?
-        </h2>
-        <p className="text-lg opacity-80 mb-8">
-          Let Calgary Consulting help you achieve your digital goals.
-        </p>
+        <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Grow Your Business?</h2>
+        <p className="text-lg opacity-80 mb-8">Let Velocity Growth help you achieve your digital goals.</p>
         <a
           href="#contact"
           className="bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-neutral-200 transition-all"
@@ -112,5 +101,5 @@ export default function AboutPage() {
         </a>
       </section>
     </>
-  );
+  )
 }

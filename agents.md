@@ -115,7 +115,7 @@ When transforming content:
 
 ## Project Structure
 
-```
+\`\`\`
 /app                          # Next.js App Router directory
   ├── page.tsx               # Homepage
   ├── layout.tsx             # Root layout
@@ -176,7 +176,7 @@ When transforming content:
 /styles                       # Additional stylesheets
   └── globals.css
 
-```
+\`\`\`
 
 ---
 
@@ -326,7 +326,7 @@ When transforming content:
 
 ### Styling Component
 
-```tsx
+\`\`\`tsx
 import { cn } from "@/lib/utils"
 
 export function MyComponent({ className, ...props }) {
@@ -336,7 +336,7 @@ export function MyComponent({ className, ...props }) {
     </div>
   )
 }
-```
+\`\`\`
 
 ---
 
@@ -344,12 +344,12 @@ export function MyComponent({ className, ...props }) {
 
 ### Scripts
 
-```bash
+\`\`\`bash
 pnpm dev      # Start development server
 pnpm build    # Build for production
 pnpm start    # Start production server
 pnpm lint     # Run ESLint (currently ignored in builds)
-```
+\`\`\`
 
 ### Deployment Pipeline
 
@@ -393,11 +393,11 @@ pnpm lint     # Run ESLint (currently ignored in builds)
 
 Always use **pnpm** as the package manager:
 
-```bash
+\`\`\`bash
 pnpm install              # Install all dependencies
 pnpm add [package]        # Add new dependency
 pnpm add -D [package]     # Add dev dependency
-```
+\`\`\`
 
 ---
 

@@ -172,19 +172,25 @@ export const Plasma: React.FC<PlasmaProps> = ({
       containerRef.current.addEventListener("mousemove", handleMouseMove)
     }
 
-    // Resize handling with debounce
     let resizeTimer: number
+    let resizeFrame: number
     const setSize = () => {
       clearTimeout(resizeTimer)
-      resizeTimer = window.setTimeout(() => {
-        const rect = containerRef.current!.getBoundingClientRect()
-        const width = Math.max(1, Math.floor(rect.width))
-        const height = Math.max(1, Math.floor(rect.height))
-        renderer.setSize(width, height)
-        const res = program.uniforms.iResolution.value as Float32Array
-        res[0] = gl.drawingBufferWidth
-        res[1] = gl.drawingBufferHeight
-      }, 50)
+      cancelAnimationFrame(resizeFrame)
+
+      // Use requestAnimationFrame to ensure resize happens after current frame
+      resizeFrame = requestAnimationFrame(() => {
+        resizeTimer = window.setTimeout(() => {
+          if (!containerRef.current) return
+          const rect = containerRef.current.getBoundingClientRect()
+          const width = Math.max(1, Math.floor(rect.width))
+          const height = Math.max(1, Math.floor(rect.height))
+          renderer.setSize(width, height)
+          const res = program.uniforms.iResolution.value as Float32Array
+          res[0] = gl.drawingBufferWidth
+          res[1] = gl.drawingBufferHeight
+        }, 50)
+      })
     }
     const ro = new ResizeObserver(setSize)
     ro.observe(containerRef.current)
@@ -232,6 +238,7 @@ export const Plasma: React.FC<PlasmaProps> = ({
       document.removeEventListener("visibilitychange", onVisibility)
       running = false
       cancelAnimationFrame(raf)
+      cancelAnimationFrame(resizeFrame)
       ro.disconnect()
       clearTimeout(resizeTimer)
       if (!isIOS && mouseInteractive && containerRef.current) {

@@ -1,0 +1,176 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Enhanced gradient with animation -->
+    <linearGradient id="velocityGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:1">
+        <animate attributeName="stop-color" 
+                 values="#a78bfa;#c084fc;#a78bfa" 
+                 dur="4s" 
+                 repeatCount="indefinite"/>
+      </stop>
+      <stop offset="50%" style="stop-color:#c084fc;stop-opacity:1">
+        <animate attributeName="stop-color" 
+                 values="#c084fc;#e879f9;#c084fc" 
+                 dur="4s" 
+                 repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" style="stop-color:#e879f9;stop-opacity:1">
+        <animate attributeName="stop-color" 
+                 values="#e879f9;#c084fc;#e879f9" 
+                 dur="4s" 
+                 repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+    
+    <!-- Accent gradient with animation -->
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#d9f99d;stop-opacity:1">
+        <animate attributeName="stop-color" 
+                 values="#d9f99d;#bef264;#d9f99d" 
+                 dur="3s" 
+                 repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" style="stop-color:#bef264;stop-opacity:1">
+        <animate attributeName="stop-color" 
+                 values="#bef264;#a3e635;#bef264" 
+                 dur="3s" 
+                 repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+    
+    <!-- Glow effect -->
+    <radialGradient id="glowEffect" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#a78bfa;stop-opacity:0"/>
+    </radialGradient>
+    
+    <!-- Filter for glow -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background glow -->
+  <circle cx="100" cy="100" r="80" fill="url(#glowEffect)">
+    <animate attributeName="r" 
+             values="75;85;75" 
+             dur="3s" 
+             repeatCount="indefinite"/>
+    <animate attributeName="opacity" 
+             values="0.5;0.8;0.5" 
+             dur="3s" 
+             repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Main V shape with enhanced design -->
+  <path d="M 60 40 L 100 140 L 140 40" 
+        stroke="url(#velocityGradient)" 
+        stroke-width="18" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+        fill="none"
+        filter="url(#glow)">
+    <!-- Subtle breathing animation -->
+    <animateTransform
+      attributeName="transform"
+      type="scale"
+      values="1;1.03;1"
+      dur="3s"
+      repeatCount="indefinite"
+      additive="sum"
+      attributeType="XML"/>
+  </path>
+  
+  <!-- Accent arrow with upward motion -->
+  <path d="M 100 140 L 100 165 L 118 147" 
+        stroke="url(#accentGradient)" 
+        stroke-width="10" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+        fill="none"
+        filter="url(#glow)">
+    <!-- Upward pulse animation -->
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0,0;0,-5;0,0"
+      dur="2s"
+      repeatCount="indefinite"
+      additive="sum"
+      attributeType="XML"/>
+  </path>
+  
+  <!-- Energy particles -->
+  <g opacity="0.8">
+    <circle cx="100" cy="145" r="3" fill="url(#accentGradient)">
+      <animate attributeName="cy" 
+               values="145;30;145" 
+               dur="3s" 
+               repeatCount="indefinite"/>
+      <animate attributeName="opacity" 
+               values="0;1;0" 
+               dur="3s" 
+               repeatCount="indefinite"/>
+      <animate attributeName="r" 
+               values="3;2;3" 
+               dur="3s" 
+               repeatCount="indefinite"/>
+    </circle>
+    
+    <circle cx="90" cy="140" r="2.5" fill="url(#accentGradient)">
+      <animate attributeName="cy" 
+               values="140;35;140" 
+               dur="3.5s" 
+               begin="0.5s"
+               repeatCount="indefinite"/>
+      <animate attributeName="opacity" 
+               values="0;1;0" 
+               dur="3.5s" 
+               begin="0.5s"
+               repeatCount="indefinite"/>
+    </circle>
+    
+    <circle cx="110" cy="140" r="2.5" fill="url(#accentGradient)">
+      <animate attributeName="cy" 
+               values="140;35;140" 
+               dur="3.5s" 
+               begin="1s"
+               repeatCount="indefinite"/>
+      <animate attributeName="opacity" 
+               values="0;1;0" 
+               dur="3.5s" 
+               begin="1s"
+               repeatCount="indefinite"/>
+    </circle>
+    
+    <circle cx="95" cy="142" r="2" fill="url(#accentGradient)">
+      <animate attributeName="cy" 
+               values="142;32;142" 
+               dur="4s" 
+               begin="1.5s"
+               repeatCount="indefinite"/>
+      <animate attributeName="opacity" 
+               values="0;1;0" 
+               dur="4s" 
+               begin="1.5s"
+               repeatCount="indefinite"/>
+    </circle>
+    
+    <circle cx="105" cy="142" r="2" fill="url(#accentGradient)">
+      <animate attributeName="cy" 
+               values="142;32;142" 
+               dur="4s" 
+               begin="2s"
+               repeatCount="indefinite"/>
+      <animate attributeName="opacity" 
+               values="0;1;0" 
+               dur="4s" 
+               begin="2s"
+               repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>

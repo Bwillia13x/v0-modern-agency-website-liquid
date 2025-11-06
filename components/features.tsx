@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react"
 import Image from "next/image"
-import { Star } from "lucide-react"
+import { Star, ArrowRight } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 
 interface FeaturesContent {
   title: string
@@ -107,6 +108,26 @@ export function Features() {
             </div>
           </CardContent>
         </Card>
+      </div>
+
+      <div className="mt-12 text-center">
+        <div className="inline-flex flex-col items-center gap-4 rounded-2xl liquid-glass border border-white/20 px-8 py-8 sm:px-12">
+          <h3 className="text-2xl font-bold text-white sm:text-3xl">Ready to dominate your market?</h3>
+          <p className="text-sm text-white/70 max-w-md">
+            Join 50+ Calgary businesses and influencers who've transformed their digital presence with our proven
+            strategies.
+          </p>
+          <Button
+            asChild
+            className="group rounded-full bg-lime-400 px-8 py-6 text-base font-semibold text-black hover:bg-lime-300 hover:shadow-[0_0_40px_rgba(163,230,53,0.6)] hover:scale-105 active:scale-95 transition-all duration-300"
+          >
+            <a href="/contact" className="flex items-center gap-2">
+              Claim Your Free Strategy Session
+              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </a>
+          </Button>
+          <p className="text-xs text-white/50">Limited spots available this month • Response within 24 hours</p>
+        </div>
       </div>
     </section>
   )

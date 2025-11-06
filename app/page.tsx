@@ -14,10 +14,11 @@ export default function Page() {
   const pricingStructuredData = {
     "@context": "https://schema.org",
     "@type": "WebPageElement",
-    "@id": "https://calgaryconsulting.com/#pricing",
+    "@id": "https://velocitygrowth.com/#pricing",
     name: "Pricing Plans",
-    description: "Calgary Consulting pricing plans - Starter, Growth, and Enterprise packages for influencers and businesses",
-    url: "https://calgaryconsulting.com/#pricing",
+    description:
+      "Velocity Growth pricing plans - Starter, Growth, and Enterprise packages for influencers and businesses",
+    url: "https://velocitygrowth.com/#pricing",
     mainEntity: {
       "@type": "PriceSpecification",
       name: "Consulting Services",
@@ -52,28 +53,28 @@ export default function Page() {
   const pageStructuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://calgaryconsulting.com/",
-    name: "Calgary Consulting | Expert Digital Marketing & Social Media Growth",
+    "@id": "https://velocitygrowth.com/",
+    name: "Velocity Growth | Expert Digital Marketing & Social Media Growth",
     description:
-      "Transform your digital presence with Calgary Consulting. Expert services for social media influencers and local businesses in Calgary.",
-    url: "https://calgaryconsulting.com/",
+      "Transform your digital presence with Velocity Growth. Expert services for social media influencers and local businesses in Calgary.",
+    url: "https://velocitygrowth.com/",
     mainEntity: {
       "@type": "Organization",
-      name: "Calgary Consulting",
-      url: "https://calgaryconsulting.com",
+      name: "Velocity Growth",
+      url: "https://velocitygrowth.com",
       sameAs: [
-        "https://twitter.com/calgaryconsulting",
-        "https://www.linkedin.com/company/calgaryconsulting",
-        "https://instagram.com/calgaryconsulting",
-        "https://facebook.com/calgaryconsulting",
+        "https://twitter.com/velocitygrowth",
+        "https://www.linkedin.com/company/velocitygrowth",
+        "https://instagram.com/velocitygrowth",
+        "https://facebook.com/velocitygrowth",
       ],
     },
     hasPart: [
       {
         "@type": "WebPageElement",
-        "@id": "https://calgaryconsulting.com/#pricing",
+        "@id": "https://velocitygrowth.com/#pricing",
         name: "Pricing Section",
-        url: "https://calgaryconsulting.com/#pricing",
+        url: "https://velocitygrowth.com/#pricing",
       },
     ],
   }

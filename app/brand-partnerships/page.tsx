@@ -13,7 +13,7 @@ import { AppverseFooter } from "@/components/appverse-footer"
 export const dynamic = "force-static"
 
 export const metadata: Metadata = {
-  title: "Brand Partnership Services | Calgary Consulting for Influencers & Brands",
+  title: "Brand Partnership Services | Velocity Growth for Influencers & Brands",
   description:
     "Connect with the right brands and maximize your partnership potential. Expert consulting for influencers seeking authentic brand collaborations and sponsorship deals in Calgary and beyond.",
 }

@@ -4,8 +4,8 @@ import Link from "next/link"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Terms and Conditions — Calgary Consulting",
-  description: "Terms and conditions for Calgary Consulting services.",
+  title: "Terms and Conditions — Velocity Growth",
+  description: "Terms and conditions for Velocity Growth services.",
   robots: {
     index: false,
     follow: false,
@@ -27,25 +27,25 @@ export default function TermsPage() {
                 <header className="space-y-4">
                   <h1 className="text-4xl font-bold tracking-tight text-lime-300">Terms and Conditions</h1>
                   <p className="text-neutral-400 text-lg">
-                    Welcome to Calgary Consulting. By using our services, you agree to these terms and conditions. Please read
-                    them carefully.
+                    Welcome to Velocity Growth. By using our services, you agree to these terms and conditions. Please
+                    read them carefully.
                   </p>
                 </header>
 
                 <section className="space-y-3">
                   <h2 className="text-2xl font-semibold text-white">1. Introduction</h2>
                   <p className="text-neutral-300">
-                    These Terms and Conditions govern your use of Calgary Consulting services. By engaging our
-                    services, you accept these Terms in full.
+                    These Terms and Conditions govern your use of Velocity Growth services. By engaging our services,
+                    you accept these Terms in full.
                   </p>
                 </section>
 
                 <section className="space-y-3">
                   <h2 className="text-2xl font-semibold text-white">2. Service Delivery and Intellectual Property</h2>
                   <p className="text-neutral-300">
-                    All strategies, reports, and materials provided during consulting sessions remain the intellectual property of
-                    Calgary Consulting until full payment is received. Upon payment, clients receive full usage rights to all
-                    deliverables specific to their engagement.
+                    All strategies, reports, and materials provided during consulting sessions remain the intellectual
+                    property of Velocity Growth until full payment is received. Upon payment, clients receive full usage
+                    rights to all deliverables specific to their engagement.
                   </p>
                   <ul className="list-disc list-inside space-y-2 text-neutral-400">
                     <li>You must not republish material from this site.</li>
@@ -70,8 +70,8 @@ export default function TermsPage() {
                     4. Limitation of Liability & Subjectivity of Content
                   </h2>
                   <p className="text-neutral-300">
-                    Skitbit will not be liable for any direct, indirect, or consequential loss or damage arising under
-                    these Terms or in connection with our website or services. The perceived quality, style, or
+                    Velocity Growth will not be liable for any direct, indirect, or consequential loss or damage arising
+                    under these Terms or in connection with our website or services. The perceived quality, style, or
                     suitability of content created by us remains subjective and cannot be used as grounds to increase
                     scope of work. Revisions are strictly governed by our{" "}
                     <Link href="/revisions" className="text-lime-300 underline">
@@ -94,8 +94,8 @@ export default function TermsPage() {
                   <p className="text-neutral-300">If you have any questions about these Terms, please contact us at:</p>
                   <p className="text-neutral-300">
                     Email:{" "}
-                    <a href="mailto:hello@theskitbit.com" className="text-lime-300 underline">
-                      hello@theskitbit.com
+                    <a href="mailto:hello@velocitygrowth.com" className="text-lime-300 underline">
+                      hello@velocitygrowth.com
                     </a>
                   </p>
                 </section>

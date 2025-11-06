@@ -350,14 +350,14 @@ Keep same grid structure but replace video content with:
 1. Add "CAD" to Currency type: `type Currency = "INR" | "USD" | "CAD"`
 2. Update PRICES object to include CAD:
 
-   ```typescript
+   \`\`\`typescript
    CAD: {
      starter: "$999",
      growth: "$2,499",
      enterprise: "$4,999",
      save: "Save $100",
    }
-   ```
+   \`\`\`
 
 3. Update geo API logic to default to CAD for Calgary/Canada IPs
 4. Keep all currency switching functionality
@@ -843,7 +843,7 @@ Create new FAQ entries:
 
 ### Essential Commands
 
-```bash
+\`\`\`bash
 # Start development server
 pnpm dev
 
@@ -863,11 +863,11 @@ grep -r "\.png\|\.jpg\|\.webp" app/ components/
 
 # Check for hardcoded prices
 grep -r "\$299\|₹25,000" app/ components/
-```
+\`\`\`
 
 ### File Operations
 
-```bash
+\`\`\`bash
 # Rename service page directories
 mv app/3D-architecture-visualization-studio app/social-media-growth
 mv app/3d-product-rendering app/brand-partnerships
@@ -877,7 +877,7 @@ cp -r app/social-media-growth app/business-consulting
 
 # Update file contents recursively
 find app/social-media-growth -type f -exec sed -i '' 's/ArchViz/Social/g' {} +
-```
+\`\`\`
 
 ---
 
@@ -1104,7 +1104,7 @@ find app/social-media-growth -type f -exec sed -i '' 's/ArchViz/Social/g' {} +
 
 ### Validation Commands
 
-```bash
+\`\`\`bash
 # Validate no design changes
 git diff --stat
 
@@ -1116,7 +1116,7 @@ pnpm build
 
 # Check TypeScript
 pnpm tsc --noEmit
-```
+\`\`\`
 
 ---
 

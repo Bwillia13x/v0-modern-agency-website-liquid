@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { Instagram, Twitter, Youtube, MessageCircle } from "lucide-react"
+import { Instagram, Twitter, Youtube, MessageCircle, ArrowRight, Sparkles } from "lucide-react"
 import LazyVideo from "./lazy-video"
 import Image from "next/image"
 
@@ -14,8 +14,9 @@ interface FooterContent {
 }
 
 const defaultContent: FooterContent = {
-  tagline: "Expert consulting for social media influencers and Calgary businesses. Grow your digital presence with proven strategies.",
-  copyright: "© 2025 — Calgary Consulting",
+  tagline:
+    "Expert consulting for social media influencers and Calgary businesses. Grow your digital presence with proven strategies.",
+  copyright: "© 2025 — Velocity Growth",
 }
 
 export function AppverseFooter() {
@@ -40,15 +41,26 @@ export function AppverseFooter() {
     <section className="text-white">
       {/* Contact CTA */}
       <div className="container mx-auto px-4 pt-12 sm:pt-16">
-        <div className="flex justify-center">
+        <div className="flex flex-col items-center gap-4 text-center">
+          <h3 className="text-3xl font-bold text-white sm:text-4xl max-w-2xl">
+            Ready to Transform Your Digital Presence?
+          </h3>
+          <p className="text-white/70 max-w-md">
+            Join Calgary's fastest-growing businesses and influencers. Let's build your success story together.
+          </p>
           <Button
             asChild
-            className="rounded-full bg-lime-400 px-8 py-6 text-base font-semibold text-black shadow-[0_0_20px_rgba(163,230,53,0.35)] hover:bg-lime-300 hover:shadow-[0_0_30px_rgba(163,230,53,0.5)] hover:scale-105 transition-all duration-300"
+            className="group rounded-full bg-lime-400 px-8 py-6 text-base font-semibold text-black shadow-[0_0_30px_rgba(163,230,53,0.4)] hover:bg-lime-300 hover:shadow-[0_0_50px_rgba(163,230,53,0.6)] hover:scale-105 active:scale-95 transition-all duration-300"
           >
-            <a href="/contact">
-              Book Free Consultation
+            <a href="/contact" className="flex items-center gap-2">
+              <Sparkles className="h-5 w-5" />
+              Book Your Free Strategy Call
+              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </a>
           </Button>
+          <p className="text-xs text-white/50">
+            No commitment required • 30-minute consultation • Personalized growth roadmap
+          </p>
         </div>
       </div>
 
@@ -104,11 +116,17 @@ export function AppverseFooter() {
       <footer className="border-t border-white/10 pb-20 md:pb-10">
         <div className="container mx-auto px-4 py-10">
           <div className="grid gap-8 md:grid-cols-[1.2fr_1fr_1fr]">
-            {/* Brand */}
+            {/* Brand - Updated logo and brand name to Velocity Growth */}
             <div className="space-y-3">
-              <div className="flex items-center gap-1.5">
-                <Image src="/icons/skitbit-white.svg" alt="Calgary Consulting logo" width={24} height={24} className="h-6 w-6" />
-                <span className="text-xl font-semibold text-white">Calgary Consulting</span>
+              <div className="flex items-center gap-2">
+                <Image
+                  src="/velocity-logo-icon.svg"
+                  alt="Velocity Growth logo"
+                  width={24}
+                  height={24}
+                  className="h-6 w-6"
+                />
+                <span className="text-xl font-semibold text-white">Velocity Growth</span>
               </div>
               <p className="max-w-sm text-sm text-neutral-400">{content.tagline}</p>
             </div>
@@ -140,11 +158,11 @@ export function AppverseFooter() {
                   <li className="flex items-center gap-2">
                     <Instagram className="h-4 w-4 text-neutral-400" />
                     <a
-                      href="https://instagram.com/calgaryconsulting"
+                      href="https://instagram.com/velocitygrowth"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-lime-300 transition-colors"
-                      aria-label="Follow Calgary Consulting on Instagram"
+                      aria-label="Follow Velocity Growth on Instagram"
                     >
                       Instagram
                     </a>
@@ -152,11 +170,11 @@ export function AppverseFooter() {
                   <li className="flex items-center gap-2">
                     <Twitter className="h-4 w-4 text-neutral-400" />
                     <a
-                      href="https://twitter.com/calgaryconsult"
+                      href="https://twitter.com/velocitygrowth"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-lime-300 transition-colors"
-                      aria-label="Follow Calgary Consulting on Twitter"
+                      aria-label="Follow Velocity Growth on Twitter"
                     >
                       Twitter
                     </a>
@@ -164,11 +182,11 @@ export function AppverseFooter() {
                   <li className="flex items-center gap-2">
                     <Youtube className="h-4 w-4 text-neutral-400" />
                     <a
-                      href="https://youtube.com/@calgaryconsulting"
+                      href="https://youtube.com/@velocitygrowth"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-lime-300 transition-colors"
-                      aria-label="Subscribe to Calgary Consulting on YouTube"
+                      aria-label="Subscribe to Velocity Growth on YouTube"
                     >
                       YouTube
                     </a>
@@ -178,7 +196,7 @@ export function AppverseFooter() {
                     <a
                       href="/contact"
                       className="hover:text-lime-300 transition-colors"
-                      aria-label="Contact Calgary Consulting"
+                      aria-label="Contact Velocity Growth"
                     >
                       Contact Us
                     </a>
